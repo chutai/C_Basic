@@ -7,16 +7,16 @@ enum direction{RIGHT,LEFT,UP,DOWN,RIGHT_NEXT,UP_NEXT,LEFT_NEXT};
 
 typedef struct StackNode {
      int x;
-     int y;
-     enum direction dir;
-     struct StackNode* next;
-    
-}Stack;
+	 int y;
+	 enum direction dir;
+	 struct StackNode* next;
+	 
+}Stack_t;
 
-Stack* newNode(int x,int y, enum direction dir);
+Stack_t* newNode(int x,int y, enum direction dir);
 bool isEmpty(Stack* stack);
-void push(Stack** stack,int x,int y,enum direction dir);
-Stack pop(Stack** stack);
-Stack peek(Stack* stack);
+void push(Stack_t** stack,int x,int y,enum direction dir);
+Stack pop(Stack_t** stack);
+Stack peek(Stack_t* stack);
 
 #endif

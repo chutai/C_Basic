@@ -4,14 +4,14 @@
 #include <stdlib.h>
 #define N 8 
 #define M 8 
-Stack *root; 
-Stack *root1;
+Stack_t *root; 
+Stack_t *root1;
 int xSource,ySource;
 int xDestination, yDestination; 
 bool visited[N][M];
 int maze[N][M];
 int pathSolution[N][M];
-bool Maze_Solve(int maze[N][M],Stack** root,enum direction direc);
+bool Maze_Solve(int maze[N][M],Stack_t** root,enum direction direc);
 int main(void)
 {
 	/*default Source Des */
@@ -39,8 +39,8 @@ int main(void)
 			}
 		}
 	}
-	root = (Stack*)malloc(sizeof(Stack));
-	root1 = (Stack*)malloc(sizeof(Stack));
+	root = (Stack_t*)malloc(sizeof(Stack_t));
+	root1 = (Stack_t*)malloc(sizeof(Stack_t));
 	memset(visited,true,sizeof(visited));
 	memset(pathSolution,0,sizeof(pathSolution));
 	bool solve,solve1;
@@ -49,7 +49,7 @@ int main(void)
 	solve1 = Maze_Solve(maze,&root1,DOWN);
 	if (true == solve || true == solve1) 
 	{ 
-		Stack temp;
+		Stack_t temp;
 		if ( true == solve && true == solve1)
 		{	
 			printf("PATH FOUNDED:\n");
@@ -99,10 +99,10 @@ int main(void)
 	free(root1);
 	return 0;
 }
-bool Maze_Solve(int maze[N][M],Stack **root,enum direction direc) 
+bool Maze_Solve(int maze[N][M],Stack_t **root,enum direction direc) 
 { 
     int i = xSource, j = ySource;  
-	Stack temp;
+	Stack_t temp;
 	push(root,i,j,direc); 
 	visited[i][j] = false;
     while (false == isEmpty(*root)) 
@@ -139,7 +139,7 @@ bool Maze_Solve(int maze[N][M],Stack **root,enum direction direc)
 			if ((i - 1 >= 0) && ( maze[i - 1][j]) &&  
 				( true == visited[i - 1][j])) 
 			 {
-				Stack *temp1 = newNode(i - 1, j,direc );
+				Stack_t *temp1 = newNode(i - 1, j,direc );
 				 visited[i - 1][j] = false; 
 				push(root,temp1->x,temp1->y,temp1->dir); 
 			 } 
@@ -152,7 +152,7 @@ bool Maze_Solve(int maze[N][M],Stack **root,enum direction direc)
 			 if ((j - 1 >= 0) && (maze[i][j - 1]) &&  
 				(true == visited[i][j - 1])) 
 			{ 
-				Stack *temp1 = newNode(i, j - 1, direc );
+				Stack_t *temp1 = newNode(i, j - 1, direc );
 				visited[i][j - 1] = false; 
 				push(root,temp1->x,temp1->y,temp1->dir); 
 			} 
@@ -163,7 +163,7 @@ bool Maze_Solve(int maze[N][M],Stack **root,enum direction direc)
 			if ((i + 1 < N) && ( maze[i + 1][j]) &&  
             (true == visited[i + 1][j])) 
 			{  
-				Stack *temp1 = newNode(i +  1, j, direc );
+				Stack_t *temp1 = newNode(i +  1, j, direc );
 				visited[i + 1][j] = false; 
 				push(root,temp1->x,temp1->y,temp1->dir); 
 			} 
@@ -176,7 +176,7 @@ bool Maze_Solve(int maze[N][M],Stack **root,enum direction direc)
 			if ((j + 1 < M) && ( maze[i][j + 1]) &&  
 			  (true == visited[i][j + 1])) 
 			{ 
-				Stack *temp1 = newNode(i, j + 1, direc );
+				Stack_t *temp1 = newNode(i, j + 1, direc );
 				visited[i][j + 1] = false; 
 				push(root,temp1->x,temp1->y,temp1->dir); 
 		    } 
