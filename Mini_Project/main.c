@@ -97,6 +97,7 @@ int main(void)
 	else printf("NO PATH FOUND\n");
 	free(root);
 	free(root1);
+	fclose(fp);
 	return 0;
 }
 bool Maze_Solve(int maze[N][M],Stack_t **root,enum direction direc) 
