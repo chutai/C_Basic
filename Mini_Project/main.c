@@ -55,22 +55,22 @@ int main(void)
 			printf("PATH FOUNDED:\n");
 			while(false == isEmpty(root))
 			{
-				temp = pop(&root);
-				pathSolution[temp.x][temp.y] = 1;
+			    temp = pop(&root);
+			    pathSolution[temp.x][temp.y] = 1;
 			}
 			while(false == isEmpty(root1))
-				{
-				temp = pop(&root1);
-				pathSolution[temp.x][temp.y] = 1;
-				}
+			{
+			    temp = pop(&root1);
+			    pathSolution[temp.x][temp.y] = 1;
+			}
 		}
 		else if (true == solve && false == solve1)
 		{
 			printf("PATH FOUNDED:\n");
 			while(false == isEmpty(root))
 			{
-				temp = pop(&root);
-				pathSolution[temp.x][temp.y] = 1;
+			     temp = pop(&root);
+			     pathSolution[temp.x][temp.y] = 1;
 			}
 		}
 		else if (true == solve1 && false == solve)
@@ -78,8 +78,8 @@ int main(void)
 			printf("PATH FOUNDED:\n");
 			while(false == isEmpty(root1))
 			{
-				temp = pop(&root1);
-				pathSolution[temp.x][temp.y] = 1;
+			     temp = pop(&root1);
+			     pathSolution[temp.x][temp.y] = 1;
 			}
 		}
 		pathSolution[0][0] = 0;
@@ -102,34 +102,34 @@ int main(void)
 bool Maze_Solve(int maze[N][M],Stack_t **root,enum direction direc) 
 { 
     int i = xSource, j = ySource;  
-	Stack_t temp;
-	push(root,i,j,direc); 
-	visited[i][j] = false;
+    Stack_t temp;
+    push(root,i,j,direc); 
+    visited[i][j] = false;
     while (false == isEmpty(*root)) 
 	{ 
 						  
-	/*printf("went while\n");			    
-     Pop the top node && move to the 
-     left, right, top, down or retract  
-     back according the value of node's 
-     dir variable. 
-	*/
-		enum direction d;
-		temp = (peek(*root));
+	 /*printf("went while\n");			    
+         Pop the top node && move to the 
+         left, right, top, down or retract  
+         back according the value of node's 
+         dir variable. 
+	 */
+	 enum direction d;
+	 temp = (peek(*root));
 		
-		d = (temp).dir; 
-		i = (temp).x, j =(temp).y; 	
-		/*	
-		 Increment the direction && 
-		 push the node in the stack again. 
-	    */
-		((temp).dir)++; 
-	    pop(root); 
-	    push(root,temp.x,temp.y,temp.dir); 
-	    if (i == xDestination && j == yDestination) 
-		{
+	 d = (temp).dir; 
+	 i = (temp).x, j =(temp).y; 	
+	 /*	
+	  Increment the direction && 
+	  push the node in the stack again. 
+	  */
+	  ((temp).dir)++; 
+	  pop(root); 
+	  push(root,temp.x,temp.y,temp.dir); 
+	  if (i == xDestination && j == yDestination) 
+	  {
             return true; 
-        } 
+          } 
 						  
 		switch(d)
 		{
