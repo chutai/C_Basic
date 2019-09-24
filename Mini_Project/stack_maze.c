@@ -46,12 +46,12 @@ Stack_t pop(Stack_t** root)
 
 Stack_t peek(Stack_t* root) 
 {
-	Stack_t temp;
-	temp.x = -1;
-	temp.y = -1;
-	if (isEmpty(root))
-	{
-	    return temp; 
-	}
-	return *root; 
+    Stack_t temp;
+    temp.x = -1;
+    temp.y = -1;
+    if (isEmpty(root))
+    {
+	return temp; 
+    }
+    return *root; 
 } 
