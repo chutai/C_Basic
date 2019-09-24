@@ -6,10 +6,10 @@
 enum direction{RIGHT,LEFT,UP,DOWN,RIGHT_NEXT,UP_NEXT,LEFT_NEXT};
 
 typedef struct StackNode {
-     int x;
-	 int y;
-	 enum direction dir;
-	 struct StackNode* next;
+     	int x;
+	int y;
+	enum direction dir;
+	struct StackNode* next;
 	 
 }Stack_t;
 
