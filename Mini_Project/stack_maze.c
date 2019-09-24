@@ -8,21 +8,21 @@ Stack_t* newNode(int x, int y, enum direction dir)
     stackNode->x = x; 
     stackNode->y = y; 
     stackNode->dir =  dir; 
-	stackNode->next = NULL; 
-	return stackNode;
+    stackNode->next = NULL; 
+    return stackNode;
 } 
 
 bool isEmpty(Stack_t* root) 
 { 
-	if (NULL == root)
-		return true;
-	return false; 
+    if (NULL == root)
+    return true;
+    return false; 
 } 
   
 void push(Stack_t** root, int x, int y, enum direction dir) 
 { 
     
-	Stack_t* stackNode = newNode(x,y,dir); 
+    Stack_t* stackNode = newNode(x,y,dir); 
     stackNode->next = *root; 
     *root = stackNode; 
 }
@@ -32,16 +32,15 @@ Stack_t pop(Stack_t** root)
     static Stack_t popped;
     if (isEmpty(*root))
 	{
-		popped.x = -1;
-		popped.y = -1;
-		return popped; 
+	    popped.x = -1;
+	    popped.y = -1;
+	    return popped; 
 	}
-	Stack_t* temp = *root; 
+    Stack_t* temp = *root; 
     *root = (*root)->next; 
-	popped.x = (*temp).x;
-	popped.y = (*temp).y; 
+    popped.x = (*temp).x;
+    popped.y = (*temp).y; 
     free(temp);
-
     return popped; 
 } 
 
@@ -52,7 +51,7 @@ Stack_t peek(Stack_t* root)
 	temp.y = -1;
 	if (isEmpty(root))
 	{
-		return temp; 
+	    return temp; 
 	}
 	return *root; 
 } 
